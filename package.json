@@ -1,6 +1,6 @@
 {
   "name": "scrapingant-client",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "ScrapingAnt API client for JavaScript",
   "main": "src/index.js",
   "keywords": [
