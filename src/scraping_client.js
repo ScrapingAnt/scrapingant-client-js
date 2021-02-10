@@ -25,9 +25,9 @@ class ScrapingClient {
      * @param {string} [parameters.proxy_country]
      * @param {boolean} [parameters.return_text]
      */
-    call(url, parameters = {}) {
-        return this.httpClient.call({
-            baseUrl: `${constants.baseUrl}/v1/general`,
+    async call(url, parameters = {}) {
+        const response = await this.httpClient.call({
+            url: `${constants.baseUrl}/v1/general`,
             method: 'post',
             headers: {
                 'Content-Type': 'application/json',
@@ -41,6 +41,8 @@ class ScrapingClient {
                 ...(parameters.return_text && { return_text: true }),
             },
         });
+
+        return response.data;
     }
 }
 

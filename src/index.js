@@ -1,4 +1,4 @@
-const ow = require('ow');
+const { default: ow } = require('ow');
 const HttpClient = require('./http_client');
 const ScrapingClient = require('./scraping_client');
 

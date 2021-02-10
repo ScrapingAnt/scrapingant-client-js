@@ -1,6 +1,7 @@
 const retry = require('async-retry');
 const axios = require('axios').default;
 const os = require('os');
+const ScrapingAntApiError = require('./scrapingant_api_error');
 const { isNode } = require('./utils');
 const { version } = require('../package.json');
 
@@ -69,33 +70,32 @@ class HttpClient {
                 if (this._isNetworkError(err)) {
                     throw err;
                 } else {
-                    return stopTrying(err);
+                    const apiError = new ScrapingAntApiError(err.response);
+
+                    if (this._isStatusCodeRetryable(err.response.status)) {
+                        throw apiError;
+                    } else {
+                        return stopTrying(apiError);
+                    }
                 }
-            }
-
-            const apiError = new Error(`Request failed with status code: ${response.status}`);
-
-            if (this._isStatusCodeRetryable(response.status)) {
-                throw apiError;
-            } else {
-                return stopTrying(apiError);
             }
         };
         return makeRequest;
     }
 
+    /*
+
     /**
      * When a network request is attempted by axios and fails,
-     * it throws an AxiosError, which will have the request
-     * and config (and other) properties.
+     * it throws an AxiosError, which will can be checked by response
+     * and isAxiosError property
+     *
      * @param {Error} err
      * @return {boolean}
      * @private
      */
     _isNetworkError(err) {
-        const hasRequest = err.request && typeof err.request === 'object';
-        const hasConfig = err.config && typeof err.config === 'object';
-        return hasRequest && hasConfig;
+        return !!err.isAxiosError && !err.response;
     }
 
     /**
