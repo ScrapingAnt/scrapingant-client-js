@@ -4,7 +4,6 @@ class ScrapingAntApiError extends Error {
      */
     constructor(response) {
         let message;
-        let type;
         if (response.data && response.data.detail) {
             message = response.data.detail;
         } else if (response.data) {
@@ -20,7 +19,6 @@ class ScrapingAntApiError extends Error {
 
         this.name = this.constructor.name;
         this.statusCode = response.status;
-        this.type = type;
         this.httpMethod = response.config && response.config.method;
     }
 }

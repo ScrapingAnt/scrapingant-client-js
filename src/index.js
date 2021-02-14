@@ -6,7 +6,7 @@ const ScrapingClient = require('./scraping_client');
  * ScrapingAntClient is the official library to access [ScrapingAnt API](https://docs.scrapingant.com/) from your
  * JavaScript applications. It runs both in Node.js and browser.
  *
- * @param {object} [options]
+ * @param {object} options
  * @param {number} [options.maxRetries=8]
  * @param {number} [options.minDelayBetweenRetriesMillis=500]
  * @param {number} [options.timeoutSecs]
@@ -25,7 +25,7 @@ class ScrapingAntClient {
         const {
             maxRetries = 8,
             minDelayBetweenRetriesMillis = 500,
-            timeoutSecs = 360,
+            timeoutSecs = 60,
             apiKey,
         } = options;
 
