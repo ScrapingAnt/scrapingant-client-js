@@ -1,5 +1,5 @@
 # ScrapingAnt API client for JavaScript
-`scrapingant-client` is the official library to access [ScrapingAnt API](https://docs.scrapingant.com) from your
+`@scrapingant/scrapingant-client` is the official library to access [ScrapingAnt API](https://docs.scrapingant.com) from your
 JavaScript applications. It runs both in Node.js and browser and provides useful features like
 automatic retries and parameters encoding to improve the ScrapingAnt usage experience.
 
@@ -15,7 +15,7 @@ automatic retries and parameters encoding to improve the ScrapingAnt usage exper
 
 ## Quick Start
 ```js
-const ScrapingAntClient = require('scrapingant-client');
+const ScrapingAntClient = require('@scrapingant/scrapingant-client');
 
 const client = new ScrapingAntClient({ apiKey: '<YOUR-SCRAPINGANT-API-KEY>' });
 
@@ -112,7 +112,7 @@ because a correction by the user is needed.
 ### Sending custom cookies
 
 ```js
-const ScrapingAntClient = require('scrapingant-client');
+const ScrapingAntClient = require('@scrapingant/scrapingant-client');
 
 const client = new ScrapingAntClient({ apiKey: '<YOUR-SCRAPINGANT-API-KEY>' });
 
@@ -125,7 +125,7 @@ client.scrape('https://httpbin.org/cookies', { cookies: 'cookieName1=cookieVal1;
 ### Executing custom JS snippet
 
 ```js
-const ScrapingAntClient = require('scrapingant-client');
+const ScrapingAntClient = require('@scrapingant/scrapingant-client');
 
 const client = new ScrapingAntClient({ apiKey: '<YOUR-SCRAPINGANT-API-KEY>' });
 
