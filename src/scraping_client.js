@@ -37,7 +37,7 @@ class ScrapingClient {
             },
             data: {
                 url,
-                ...(!parameters.browser && { browser: false }),
+                ...(parameters.browser && { browser: !!parameters.browser }),
                 ...(parameters.cookies && { cookies: parameters.cookies }),
                 ...(parameters.js_snippet && { js_snippet: base64encode(parameters.js_snippet) }),
                 ...(parameters.proxy_country && { proxy_country: parameters.proxy_country }),
