@@ -46,9 +46,11 @@ class ScrapingAntClient {
      *
      * @param {string} url
      * @param {object} [parameters]
+     * @param {string} [parameters.browser]
      * @param {string} [parameters.cookies]
      * @param {string} [parameters.js_snippet]
      * @param {string} [parameters.proxy_country]
+     * @param {string} [parameters.wait_for_selector]
      * @param {boolean} [parameters.return_text]
      */
     scrape(url, parameters) {
