@@ -78,9 +78,11 @@ https://docs.scrapingant.com/request-response-format#available-parameters
 | --- | --- |
 | url | <code>string</code> |
 | [parameters] | <code>object</code> |
+| [parameters.browser] | <code>boolean</code> |
 | [parameters.cookies] | <code>string</code> |
 | [parameters.js_snippet] | <code>string</code> |
 | [parameters.proxy_country] | <code>string</code> |
+| [parameters.wait_for_selector] | <code>string</code> |
 | [parameters.return_text] | <code>boolean</code> |
 
 **IMPORTANT NOTE:** <code>parameters.js_snippet</code> will be encoded to Base64 automatically by the ScrapingAnt JS client library.

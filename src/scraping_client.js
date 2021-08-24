@@ -20,9 +20,11 @@ class ScrapingClient {
     /**
      * @param {string} url
      * @param {object} [parameters]
+     * @param {string} [parameters.browser]
      * @param {string} [parameters.cookies]
      * @param {string} [parameters.js_snippet]
      * @param {string} [parameters.proxy_country]
+     * @param {string} [parameters.wait_for_selector]
      * @param {boolean} [parameters.return_text]
      */
     async call(url, parameters = {}) {
@@ -35,9 +37,11 @@ class ScrapingClient {
             },
             data: {
                 url,
+                ...(parameters.browser && { browser: !!parameters.browser }),
                 ...(parameters.cookies && { cookies: parameters.cookies }),
                 ...(parameters.js_snippet && { js_snippet: base64encode(parameters.js_snippet) }),
                 ...(parameters.proxy_country && { proxy_country: parameters.proxy_country }),
+                ...(parameters.wait_for_selector && { wait_for_selector: parameters.wait_for_selector }),
                 ...(parameters.return_text && { return_text: true }),
             },
         });
