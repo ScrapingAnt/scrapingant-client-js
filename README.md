@@ -81,6 +81,7 @@ https://docs.scrapingant.com/request-response-format#available-parameters
 | [parameters.browser] | <code>boolean</code> |
 | [parameters.cookies] | <code>string</code> |
 | [parameters.js_snippet] | <code>string</code> |
+| [parameters.proxy_type] | <code>string</code> |
 | [parameters.proxy_country] | <code>string</code> |
 | [parameters.wait_for_selector] | <code>string</code> |
 | [parameters.return_text] | <code>boolean</code> |

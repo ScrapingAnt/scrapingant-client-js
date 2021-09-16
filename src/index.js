@@ -46,9 +46,10 @@ class ScrapingAntClient {
      *
      * @param {string} url
      * @param {object} [parameters]
-     * @param {string} [parameters.browser]
+     * @param {boolean} [parameters.browser]
      * @param {string} [parameters.cookies]
      * @param {string} [parameters.js_snippet]
+     * @param {string} [parameters.proxy_type] 'datacenter' or 'residential'
      * @param {string} [parameters.proxy_country]
      * @param {string} [parameters.wait_for_selector]
      * @param {boolean} [parameters.return_text]
