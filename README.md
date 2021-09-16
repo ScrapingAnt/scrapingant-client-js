@@ -112,6 +112,19 @@ because a correction by the user is needed.
 
 ## Examples
 
+### Using residential proxy
+
+```js
+const ScrapingAntClient = require('@scrapingant/scrapingant-client');
+
+const client = new ScrapingAntClient({ apiKey: '<YOUR-SCRAPINGANT-API-KEY>' });
+
+// Get the residential IP info using httpbin.org
+client.scrape('https://httpbin.org/ip', { proxy_type: 'residential' })
+    .then(res => console.log(res))
+    .catch(err => console.error(err.message));
+```
+
 ### Sending custom cookies
 
 ```js
@@ -119,7 +132,7 @@ const ScrapingAntClient = require('@scrapingant/scrapingant-client');
 
 const client = new ScrapingAntClient({ apiKey: '<YOUR-SCRAPINGANT-API-KEY>' });
 
-// Scrape the example.com site.
+// Scrape the httpbin.org site and get all the cookies sent before
 client.scrape('https://httpbin.org/cookies', { cookies: 'cookieName1=cookieVal1;cookieName2=cookieVal2' })
     .then(res => console.log(res))
     .catch(err => console.error(err.message));
