@@ -22,6 +22,7 @@ class ScrapingClient {
      * @param {object} [parameters]
      * @param {boolean} [parameters.browser]
      * @param {string} [parameters.cookies]
+     * @param {object} [parameters.headers]
      * @param {string} [parameters.js_snippet]
      * @param {string} [parameters.proxy_type] 'datacenter' or 'residential'
      * @param {string} [parameters.proxy_country]
@@ -29,13 +30,20 @@ class ScrapingClient {
      * @param {boolean} [parameters.return_text]
      */
     async call(url, parameters = {}) {
+        const transformedHeaders = parameters.headers && typeof parameters.headers === 'object'
+            ? this._transformCustomHeaders(parameters.headers)
+            : {};
+
+        const defaultHeaders = {
+            'Content-Type': 'application/json',
+            'x-api-key': this.apiKey,
+        };
+
+        const headers = Object.assign(defaultHeaders, transformedHeaders);
         const response = await this.httpClient.call({
             url: `${constants.baseUrl}/v1/general`,
             method: 'post',
-            headers: {
-                'Content-Type': 'application/json',
-                'x-api-key': this.apiKey,
-            },
+            headers,
             data: {
                 url,
                 ...(typeof parameters.browser !== 'undefined' && { browser: !!parameters.browser }),
@@ -49,6 +57,16 @@ class ScrapingClient {
         });
 
         return response.data;
+    }
+
+    _transformCustomHeaders(headers = {}) {
+        const returnHeaders = {};
+
+        Object.keys(headers).forEach((key) => {
+            returnHeaders[`ant-${key}`] = headers[key];
+        });
+
+        return returnHeaders;
     }
 }
 
