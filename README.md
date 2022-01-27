@@ -138,6 +138,20 @@ client.scrape('https://httpbin.org/cookies', { cookies: 'cookieName1=cookieVal1;
     .catch(err => console.error(err.message));
 ```
 
+### Adding custom headers
+
+```js
+const ScrapingAntClient = require('@scrapingant/scrapingant-client');
+
+const client = new ScrapingAntClient({ apiKey: '<YOUR-SCRAPINGANT-API-KEY>' });
+
+// Scrape the httpbin.org site and get all the headers that would be sent before
+client.scrape('https://httpbin.org/headers', { headers: { scraping: "is cool!" } })
+    .then(res => console.log(res))
+    .catch(err => console.error(err.message));
+```
+
+
 ### Executing custom JS snippet
 
 ```js
