@@ -57,13 +57,13 @@ JavaScript applications. It runs both in Node.js and browser.
 #### [](#ScrapingAntClient) `new ScrapingAntClient(options)`
 
 
-| Param | Type | Default |
-| --- | --- | --- |
-| [options] | <code>object</code> |  |
-| [options.maxRetries] | <code>number</code> | <code>8</code> |
+| Param                                  | Type                | Default          |
+|----------------------------------------|---------------------|------------------|
+| [options]                              | <code>object</code> |                  |
+| [options.maxRetries]                   | <code>number</code> | <code>8</code>   |
 | [options.minDelayBetweenRetriesMillis] | <code>number</code> | <code>500</code> |
-| [options.timeoutSecs] | <code>number</code> | <code>60</code> |
-| [options.apiKey] | <code>string</code> |  |
+| [options.timeoutSecs]                  | <code>number</code> | <code>60</code>  |
+| [options.apiKey]                       | <code>string</code> |                  |
 
 
 * * *
@@ -74,17 +74,18 @@ JavaScript applications. It runs both in Node.js and browser.
 
 https://docs.scrapingant.com/request-response-format#available-parameters
 
-| Param | Type |
-| --- | --- |
-| url | <code>string</code> |
-| [parameters] | <code>object</code> |
-| [parameters.browser] | <code>boolean</code> |
-| [parameters.cookies] | <code>string</code> |
-| [parameters.js_snippet] | <code>string</code> |
-| [parameters.proxy_type] | <code>string</code> |
-| [parameters.proxy_country] | <code>string</code> |
-| [parameters.wait_for_selector] | <code>string</code> |
-| [parameters.return_text] | <code>boolean</code> |
+| Param                          | Type                 |
+|--------------------------------|----------------------|
+| url                            | <code>string</code>  |
+| [parameters]                   | <code>object</code>  |
+| [parameters.browser]           | <code>boolean</code> |
+| [parameters.cookies]           | <code>string</code>  |
+| [parameters.headers]           | <code>object</code>  |
+| [parameters.js_snippet]        | <code>string</code>  |
+| [parameters.proxy_type]        | <code>string</code>  |
+| [parameters.proxy_country]     | <code>string</code>  |
+| [parameters.wait_for_selector] | <code>string</code>  |
+| [parameters.return_text]       | <code>boolean</code> |
 
 **IMPORTANT NOTE:** <code>parameters.js_snippet</code> will be encoded to Base64 automatically by the ScrapingAnt JS client library.
 
@@ -101,11 +102,11 @@ because a correction by the user is needed.
 
 **Properties**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| message | <code>string</code> | Error message returned by the API. |
-| statusCode | <code>number</code> | HTTP status code of the error. |
-| httpMethod | <code>string</code> | HTTP method of the API call. |
+| Name       | Type                | Description                        |
+|------------|---------------------|------------------------------------|
+| message    | <code>string</code> | Error message returned by the API. |
+| statusCode | <code>number</code> | HTTP status code of the error.     |
+| httpMethod | <code>string</code> | HTTP method of the API call.       |
 
 
 * * *
